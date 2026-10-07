@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H85WKNMF92"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H85WKNMF92');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Apps | SASA Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background: var(--bg-light);">
+    
+    <!-- FIX: Removed the blue background style from the nav -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="sasalogo croped.png" alt="SASA Solutions Logo" class="logo-icon">
+                <span>SASA</span> Solutions
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html" style="color: var(--secondary-color); font-weight: bold;">Apps</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- App Gallery Section -->
+    <section class="section-padding" style="padding-top: 120px; min-height: 70vh;">
+        <div class="container text-center">
+            <h2 class="section-title">Our Applications</h2>
+            <p class="section-subtitle">Explore software built by SASA Solutions</p>
+            
+            <!-- Windows Apps Section -->
+            <h3 style="margin-top: 50px; color: var(--primary-color); text-align: left; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+                <i class="fab fa-windows" style="color: #0078D6; margin-right: 8px;"></i> Windows Applications
+            </h3>
+            <div id="windows-apps-grid" style="display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
+                <p style="color: var(--text-light);">Loading Windows apps...</p>
+            </div>
+
+            <!-- Android Apps Section -->
+            <h3 style="margin-top: 60px; color: var(--primary-color); text-align: left; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+                <i class="fab fa-android" style="color: #3DDC84; margin-right: 8px;"></i> Android Applications
+            </h3>
+            <div id="android-apps-grid" style="display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
+                <p style="color: var(--text-light);">Loading Android apps...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary-color);">
+        <div class="container text-center">
+            <p>&copy; 2026 SASA Solutions. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add Supabase CDN and script.js here -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>

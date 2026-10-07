@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H85WKNMF92"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H85WKNMF92');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASA Solutions | IT Consulting & Software Development</title>
+    <meta name="description" content="SASA Solutions provides reliable, enterprise-class technology solutions and IT consulting to help your business grow.">
+    <meta name="google-site-verification" content="eEKaKTwTSCBt5dF7ddWuVrAEozvTaVQxbIyG35N0smM" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Your specific Public Key
+            emailjs.init("rHnmsDCc9MzOeiCfR");
+        })();
+    </script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="sasalogo croped.png" alt="SASA Solutions Logo" class="logo-icon">
+                <span>SASA</span> Solutions
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <!-- NEW: Apps Link -->
+                <li><a href="apps.html">Apps</a></li> 
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blog">Blog</a></li> 
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="btn-primary">Get a Free Consultation</a></li>
+                <li><a href="game.html" style="color: var(--secondary-color); font-weight: bold;"><i class="fas fa-gamepad"></i> Play Game</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    
+    <!-- Dynamic Latest Releases Banner -->
+    <section id="latest-release" style="background: var(--bg-light); padding: 80px 20px; text-align: center; border-bottom: 1px solid #eee;">
+        <div class="container">
+            <span style="background: #ff9800; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; display: inline-block;">Latest Releases</span>
+            
+            <!-- JavaScript will inject the newest mixed apps here -->
+            <div id="latest-apps-grid" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+                <p>Loading latest applications...</p>
+            </div>
+        </div>
+    </section>
+
+    <header id="home" class="hero" style="padding-top: 60px;">
+        <div class="container hero-content">
+            <h1>Award-Winning Managed IT & Software Solutions</h1>
+            <p>SASA Solutions is effective, reliable, and easy to work with. We provide the technology infrastructure your business needs to reach its full potential.</p>
+            <a href="#contact" class="btn-primary hero-btn">Book Your Free IT Consultation Now</a>
+        </div>
+    </header>
+
+    <section id="services" class="services section-padding">
+        <div class="container">
+            <h2 class="section-title">Our Services and Solutions</h2>
+            <p class="section-subtitle">Ensure your IT benefits your business without the hassles.</p>
+            
+            <div class="services-grid">
+                <a href="service-details.html?id=web-dev" class="service-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Web & App Development</h3>
+                    <p>Custom websites and applications built to scale with your growing business needs.</p>
+                </a>
+                <a href="service-details.html?id=managed-it" class="service-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Managed IT Services</h3>
+                    <p>Proactive monitoring and maintenance of your networks, servers, and devices.</p>
+                </a>
+                <a href="service-details.html?id=cybersecurity" class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Cybersecurity</h3>
+                    <p>Protect your critical data from breaches with our enterprise-class security solutions.</p>
+                </a>
+                <a href="service-details.html?id=consulting" class="service-card">
+                    <i class="fas fa-server"></i>
+                    <h3>IT Consulting</h3>
+                    <p>Strategic technology guidance to align your IT infrastructure with your business goals.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog section-padding" style="background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">Tech News & Insights</h2>
+            <p class="section-subtitle">Stay updated with the latest in IT and software development.</p>
+            <div id="article-grid" class="article-grid"></div>
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 40px;">
+                <button id="load-more-btn" class="expand-btn" style="margin: 0;" title="Load More Articles">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <button id="collapse-btn" class="expand-btn" style="margin: 0; display: none;" title="Collapse Articles">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact section-padding">
+        <div class="container contact-container">
+            <div class="contact-text">
+                <h2>Ready to upgrade your tech?</h2>
+                <p>Contact us today for a FREE IT consultation and we'll show you what SASA Solutions can do for your business.</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> sksamimjulislam@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> West Bengal, India</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contact-form">
+                    <input type="text" name="name" id="name" placeholder="Full Name*" required>
+                    <input type="email" name="email" id="email" placeholder="Business Email*" required>
+                    <input type="text" name="company" id="company" placeholder="Company Name">
+                    <textarea name="message" id="message" rows="5" placeholder="How can we help you?*" required></textarea>
+                    
+                    <button type="submit" class="btn-primary submit-btn">Send Message</button>
+                    <p id="form-status" style="display:none; margin-top: 15px; font-weight: bold;"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about section-padding">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="profile.jpg" alt="Sk Samimjul Islam - Founder">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title" style="text-align: left;">About The Founder</h2>
+                <p>Hi, I am Sk Samimjul Islam, the founder of SASA Solutions.</p>
+                <p>My journey in technology started with a deep passion for software development and solving real-world problems. As an IT specialist, I have spent years architecting and building complex systems—from comprehensive business billing applications to collaborative web platforms. I created SASA Solutions to bring that same level of dedication, modern engineering, and technical expertise to businesses looking to scale.</p>
+                <p>Whether you need a custom application built from scratch or a secure network infrastructure, my goal is to ensure your technology drives your success.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 SASA Solutions. All Rights Reserved.</p>
+            <div style="margin-top: 15px; font-size: 0.9rem;">
+                <a href="privacy-policy.html" style="color: var(--white); text-decoration: none; margin: 0 10px;">Privacy Policy</a> | 
+                <a href="terms.html" style="color: var(--white); text-decoration: none; margin: 0 10px;">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>

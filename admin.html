@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASA Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-screen { display: none; min-height: 100vh; background: var(--bg-light); }
+        #login-screen.active { display: flex; align-items: center; justify-content: center; }
+        #dashboard-screen.active { display: block; }
+        .dashboard-container { display: flex; max-width: 1200px; margin: 40px auto; gap: 30px; }
+        .sidebar { width: 250px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .sidebar button { display: block; width: 100%; text-align: left; margin-bottom: 10px; padding: 10px; background: none; border: none; font-weight: bold; cursor: pointer; color: var(--text-light); }
+        .sidebar button.active, .sidebar button:hover { color: var(--primary-color); background: var(--bg-light); border-radius: 4px; }
+        .main-content { flex: 1; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <!-- LOGIN SCREEN -->
+    <div id="login-screen" class="admin-screen active">
+        <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center;">
+            <h2 style="color: var(--primary-color); margin-bottom: 20px;">SASA Admin Login</h2>
+            <form id="login-form">
+                <input type="email" id="admin-email" placeholder="Admin Email" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
+                <input type="password" id="admin-password" placeholder="Password" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 12px;">Login Securely</button>
+                <p id="login-error" style="color: red; margin-top: 15px; display: none;"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- DASHBOARD SCREEN -->
+    <div id="dashboard-screen" class="admin-screen">
+        <nav style="background: var(--primary-color); color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
+            <h2>SASA Internal Dashboard</h2>
+            <button id="logout-btn" class="btn-primary" style="background: #e74c3c;">Logout</button>
+        </nav>
+
+        <div class="dashboard-container">
+            <!-- Sidebar Navigation -->
+            <div class="sidebar">
+                <button class="nav-btn active" data-target="queries-tab"><i class="fas fa-envelope"></i> Client Queries</button>
+                <button class="nav-btn" data-target="apps-tab"><i class="fas fa-box"></i> Publish App</button>
+                <button class="nav-btn" data-target="articles-tab"><i class="fas fa-newspaper"></i> Blog Articles</button>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                
+                <!-- Client Queries Tab -->
+                <div id="queries-tab" class="tab-content active">
+                    <h3 style="color: var(--primary-color); border-bottom: 2px solid #ddd; padding-bottom: 10px;">Recent Client Inquiries</h3>
+                    <table>
+                        <thead><tr><th>Date</th><th>Name</th><th>Email</th><th>Message</th></tr></thead>
+                        <tbody id="queries-tbody"><tr><td colspan="4">Loading...</td></tr></tbody>
+                    </table>
+                </div>
+
+                <!-- Publish App Tab -->
+                <div id="apps-tab" class="tab-content">
+                    <h3 style="color: var(--primary-color); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px;">Manage Published Apps</h3>
+                    
+                    <!-- App List Table -->
+                    <table style="margin-bottom: 40px; width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>App Name</th>
+                                <th>Platform</th>
+                                <th>Date Published</th>
+                                <th style="width: 150px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="apps-tbody">
+                            <tr><td colspan="4">Loading...</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="color: var(--primary-color); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px;">Publish New Application</h3>
+                    <form id="app-form">
+                        <div class="form-group"><label>App Name</label><input type="text" id="app-name" required></div>
+                        <div class="form-group"><label>Short Description</label><input type="text" id="app-desc" required></div>
+                        <div class="form-group"><label>Platform</label>
+                            <select id="app-platform"><option value="Windows">Windows</option><option value="Android">Android</option></select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Upload App Icon (.png or .jpg)</label>
+                            <input type="file" id="app-icon-file" accept="image/*">
+                        </div>
+                        <div class="form-group"><label>Upload App File (.exe or .apk)</label>
+                            <input type="file" id="app-file" required accept=".exe,.apk">
+                        </div>
+                        <div id="upload-progress-container" style="display: none; background: #e0e0e0; border-radius: 4px; height: 12px; margin-bottom: 15px; overflow: hidden;">
+                            <div id="upload-progress-bar" style="width: 0%; height: 100%; background: #2E8B57; transition: width 0.2s;"></div>
+                        </div>
+
+                        <button type="submit" class="btn-primary" id="app-submit-btn">Publish to Website</button>
+                        <p id="app-status" style="margin-top: 10px; font-weight: bold;"></p>
+                    </form>
+                </div>
+
+                <!-- Articles Tab -->
+                <div id="articles-tab" class="tab-content">
+                    <h3 style="color: var(--primary-color); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px;">Manage Blog Articles</h3>
+                    
+                    <!-- Article List Table -->
+                    <table style="margin-bottom: 40px; width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Date Published</th>
+                                <th style="width: 150px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="articles-tbody">
+                            <tr><td colspan="3">Loading...</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="color: var(--primary-color); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px;">Publish New Article</h3>
+                    <form id="article-form">
+                        <div class="form-group"><label>Article Title</label><input type="text" id="art-title" required></div>
+                        <div class="form-group"><label>Full Description</label><textarea id="art-desc" rows="6" required placeholder="Write your plain text description here..."></textarea></div>
+                        <div class="form-group"><label>Upload Cover Image</label><input type="file" id="art-image" required accept="image/*"></div>
+                        <button type="submit" class="btn-primary" id="art-submit-btn">Publish Article</button>
+                        <p id="art-status" style="margin-top: 10px; font-weight: bold;"></p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- EDIT ARTICLE MODAL -->
+    <div id="edit-article-modal" class="admin-screen" style="background: rgba(0,0,0,0.7); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; display: none; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 30px; border-radius: 8px; max-width: 600px; width: 100%; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+            <h3 style="color: var(--primary-color); margin-bottom: 20px;">Edit Article</h3>
+            
+            <input type="hidden" id="edit-art-id">
+            
+            <div class="form-group"><label>Article Title</label><input type="text" id="edit-art-title" required></div>
+            <div class="form-group"><label>Full Description</label><textarea id="edit-art-desc" rows="6" required></textarea></div>
+            
+            <div class="form-group">
+                <label>Replace Cover Image (Leave empty to keep current image)</label>
+                <input type="file" id="edit-art-image" accept="image/*">
+            </div>
+            
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn-outline" style="flex: 1; padding: 10px;" onclick="closeEditArticleModal()">Cancel</button>
+                <button class="btn-primary" style="flex: 1; padding: 10px;" id="save-edit-art-btn" onclick="saveEditedArticle()">Save Changes</button>
+            </div>
+            <p id="edit-art-status" style="margin-top: 10px; font-weight: bold; text-align: center;"></p>
+        </div>
+    </div>
+
+
+    <!-- EDIT APP MODAL -->
+    <div id="edit-app-modal" class="admin-screen" style="background: rgba(0,0,0,0.7); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; display: none; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 30px; border-radius: 8px; max-width: 600px; width: 100%; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+            <h3 style="color: var(--primary-color); margin-bottom: 20px;">Edit Published App</h3>
+            
+            <input type="hidden" id="edit-app-id">
+            
+            <div class="form-group"><label>App Name</label><input type="text" id="edit-app-name" required></div>
+            <div class="form-group"><label>Short Description</label><input type="text" id="edit-app-desc" required></div>
+            <div class="form-group"><label>Platform</label>
+                <select id="edit-app-platform">
+                    <option value="Windows">Windows</option>
+                    <option value="Android">Android</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Replace App File (Leave empty to keep current file)</label>
+                <input type="file" id="edit-app-file" accept=".exe,.apk">
+            </div>
+            
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn-outline" style="flex: 1; padding: 10px;" onclick="closeEditAppModal()">Cancel</button>
+                <button class="btn-primary" style="flex: 1; padding: 10px;" id="save-edit-app-btn" onclick="saveEditedApp()">Save Changes</button>
+            </div>
+            <p id="edit-app-status" style="margin-top: 10px; font-weight: bold; text-align: center;"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

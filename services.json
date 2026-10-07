@@ -1,0 +1,30 @@
+{
+    "web-dev": {
+        "title": "Web & Application Development",
+        "icon": "fas fa-laptop-code",
+        "tagline": "Custom software built to scale with your business.",
+        "content": "<p>Off-the-shelf software rarely fits a growing business perfectly. We specialize in building custom web platforms, mobile applications, and complex billing systems using robust technologies like Python, React, and secure cloud databases.</p><p>From the initial design phase to deployment and maintenance, we ensure your software is fast, secure, and exactly what your team needs.</p>",
+        "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop"
+    },
+    "managed-it": {
+        "title": "Managed IT Services",
+        "icon": "fas fa-network-wired",
+        "tagline": "We handle your tech so you can handle your business.",
+        "content": "<p>Stop worrying about server crashes or slow networks. Our Managed IT services provide 24/7 proactive monitoring of your entire infrastructure. We detect and fix issues before they ever affect your daily operations.</p><p>We manage your hardware, software updates, cloud backups, and employee helpdesk support.</p>",
+        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1000&auto=format&fit=crop"
+    },
+    "cybersecurity": {
+        "title": "Enterprise Cybersecurity",
+        "icon": "fas fa-shield-alt",
+        "tagline": "Protecting your most valuable digital assets.",
+        "content": "<p>A single data breach can cost a small business everything. We implement enterprise-grade security protocols, including advanced firewalls, endpoint protection, and mandatory Multi-Factor Authentication (MFA) for your staff.</p><p>We also run regular vulnerability assessments to ensure your customer data remains locked down against modern ransomware threats.</p>",
+        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop"
+    },
+    "consulting": {
+        "title": "Strategic IT Consulting",
+        "icon": "fas fa-server",
+        "tagline": "Aligning your technology with your business goals.",
+        "content": "<p>Not sure what technology you need to grow? As your strategic IT partner, we audit your current systems and create a roadmap for your future.</p><p>Whether you need help migrating your on-premise servers to the cloud, or setting up a secure remote-work environment for your team, we provide the expert guidance to make it happen smoothly.</p>",
+        "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop"
+    }
+}
